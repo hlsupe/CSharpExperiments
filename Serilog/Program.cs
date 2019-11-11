@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Serilog
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main()
 		{
 			var log = new LoggerConfiguration()
 				.MinimumLevel.Verbose()
@@ -16,7 +13,7 @@ namespace Serilog
 				.WriteTo.File("log.txt",
 					rollingInterval: RollingInterval.Day,
 					rollOnFileSizeLimit: true,
-					fileSizeLimitBytes:512)
+					fileSizeLimitBytes: 512)
 				.CreateLogger();
 
 			log.Information("Hello, Serilog!");
